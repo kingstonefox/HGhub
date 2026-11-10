@@ -18,9 +18,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
-
-    - name: Setup Android SDK
+        
+    - name: Set up Android SDK
       uses: android-actions/setup-android@v3
+      # 如果原先这里有写 packages: 'tools'，请把它删掉，或者换成具体的组件，例如：
+      with:
+        packages: 'platforms;android-34 build-tools;34.0.0'
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
