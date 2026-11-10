@@ -28,10 +28,8 @@ jobs:
     - name: Build Debug APK
       run: ./gradlew assembleDebug
 
-    - name: Upload APK Artifact
+- name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: app-debug-apk
-        path: app/build/outputs/apk/debug/app-debug-apk.gradle
-        # 注意：如果项目的 module 名称不是 app，或者输出路径不同，
-        # 可以编译后去 actions 日志里查看实际生成的 apk 路径并调整上面一行。
+        name: release-apk
+        path: '**/*.apk' # 这样会自动搜索并打包所有编译出来的 apk 文件
